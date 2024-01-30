@@ -1,3 +1,4 @@
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
@@ -10,7 +11,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="center">
-      <p>Hi</p>
+      <ConnectButton />
     </div>
   );
 }
