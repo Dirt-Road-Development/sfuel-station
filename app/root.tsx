@@ -14,7 +14,7 @@ import {
   Footer,
   Navigation,
   Web3WalletContainer
-} from "./components";
+} from "~/components";
 import globalStyles from "~/styles/global.css";
 
 export const links: LinksFunction = () => [
@@ -47,7 +47,7 @@ export default function App() {
       <body>
         <Navigation />
         <Web3WalletContainer
-          projectId={walletConnectProjectId ?? "ERROR: UNKNOWN PROJECT ID"}
+          projectId={walletConnectProjectId?.toString() ?? ""}
         >
           <Outlet />
         </Web3WalletContainer>

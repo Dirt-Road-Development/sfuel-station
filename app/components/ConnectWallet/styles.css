@@ -1,0 +1,27 @@
+.connect-wallet {
+	height: 500px;
+
+	.connect-wallet__header {
+
+	}
+
+	.connect-options {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.connect-options__rainbowkit,
+		.connect-options__manual {
+			width: 40%;
+			height: 100%;
+			background: green;
+		}
+
+		.connect-options__or {
+			width: 5%;
+			background: blue;
+		}
+	}
+}

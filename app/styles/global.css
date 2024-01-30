@@ -26,11 +26,14 @@ h3 {
     color: var(--white);
 }
 
-h4,
+h3 {
+    font-size: 2rem;
+}
+
+h4,f
 h5,
 h6,
 p,
-button,
 label,
 input,
 time,
@@ -39,6 +42,18 @@ i,
 li {
     font-family: "Source Code Pro", monospace;
     color: var(--white);
+}
+
+button {
+    font-family: "Source Code Pro", monospace;
+    background: var(--white);
+    color: var(--black);
+    padding: 8px 16px;
+    border-radius: 4px;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 button,
