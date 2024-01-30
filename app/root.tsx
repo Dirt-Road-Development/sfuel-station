@@ -7,10 +7,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  json,
+  useLoaderData,
 } from "@remix-run/react";
 import {
   Footer,
-  Navigation
+  Navigation,
+  Web3WalletContainer
 } from "./components";
 import globalStyles from "~/styles/global.css";
 
@@ -23,7 +26,16 @@ export const links: LinksFunction = () => [
   ]),
 ];
 
+export async function loader() {
+  return json({
+    walletConnectProjectId: process.env.WALLET_CONNECT_PROJECT_ID
+  });
+}
+
 export default function App() {
+
+  const { walletConnectProjectId } = useLoaderData<typeof loader>();
+
   return (
     <html lang="en">
       <head>
@@ -34,7 +46,11 @@ export default function App() {
       </head>
       <body>
         <Navigation />
-        <Outlet />
+        <Web3WalletContainer
+          projectId={walletConnectProjectId ?? "ERROR: UNKNOWN PROJECT ID"}
+        >
+          <Outlet />
+        </Web3WalletContainer>
         <Footer />
         <ScrollRestoration />
         <Scripts />
