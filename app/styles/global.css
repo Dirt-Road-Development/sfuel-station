@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Titillium+Web:wght@700&display=swap");
+
+:root {
+    --black: #000;
+    --white: #FFF;
+
+    --primary-color: lightblue;
+    --on-primary-color: var(--black);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Titillium Web", sans-serif;
+    color: var(--white);
+}
+
+h4,
+h5,
+h6,
+p,
+button,
+label,
+input,
+time,
+a,
+i,
+li {
+    font-family: "Source Code Pro", monospace;
+    color: var(--white);
+}
+
+button,
+a,
+p {
+    font-size: 14px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    border-bottom: 0.25px solid var(--white);
+    color: var(--black);
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row-start {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.column {
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.center {
+    padding: 32px 0;
+    margin: 0 auto;
+    width: 65% !important;
+    height: 100% !important;
+
+    @media (max-width: 864px) {
+        width: 85% !important;
+        padding: 16px 0;
+    }
+
+    @media (max-width: 500px) {
+        width: 95% !important;
+        padding: 16px 0;
+    }
+}
