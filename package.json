@@ -1,7 +1,9 @@
 {
   "name": "sfuel-station",
   "private": true,
-  "sideEffects": false,
+  "sideEffects": [
+    "polyfills.ts"
+  ],
   "type": "module",
   "scripts": {
     "build": "remix build",
@@ -11,13 +13,17 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^1.3.3",
     "@remix-run/css-bundle": "^2.5.1",
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
+    "buffer-polyfill": "npm:buffer@^6.0.3",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "viem": "^1.21.4",
+    "wagmi": "^1.4.13"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.5.1",
