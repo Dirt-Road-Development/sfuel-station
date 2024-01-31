@@ -38,6 +38,7 @@ export default function Index() {
         </div>
       </div>
       <button
+        className="next-step-button"
         onClick={(e) => {
           e.preventDefault();
           navigate("/connect-wallet");

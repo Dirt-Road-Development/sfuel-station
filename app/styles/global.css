@@ -117,3 +117,12 @@ input {
         padding: 16px 0;
     }
 }
+
+.next-step-button {
+    width: 300px;
+    text-align: center;
+
+    &:hover {
+        background: var(--primary-color);
+    }
+}

@@ -1,8 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
-import {Outlet} from "@remix-run/react";
-import {useAccount} from "wagmi";
+import { Outlet, useNavigate } from "@remix-run/react";
+import { useAccount } from "wagmi";
 import { ConnectWallet } from "~/components";
 import styles from "./styles.css";
+import { useEffect, useState } from "react";
+import { isAddress } from "viem";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,16 +19,35 @@ export const links = () => [
 
 export default function Index() {
 
-  const { address, isConnected } = useAccount();
-  
-  console.log("Address: ", address, isConnected);
+  const { address: connectedAddress, isConnected } = useAccount();
+  const navigate = useNavigate();
+  const [address, setAddress] = useState<string | undefined>();
+  const [isValidAddress, setIsValidAddress] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (connectedAddress !== undefined && isAddress(connectedAddress)) setAddress(connectedAddress);
+  }, [connectedAddress]);
+
+  useEffect(() => {
+    setIsValidAddress(address !== undefined && isAddress(address));
+  }, [address]);
 
   return (
     <div className="center container">
-      {address && isConnected
-        ? <Outlet />
-        : <ConnectWallet />
-      }
+      <ConnectWallet setAddress={setAddress} />
+      {isValidAddress && (
+        <>
+        <button
+          className="next-step-button"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/claim-sfuel?address=" + address);
+          }}
+        >
+          Next: Claim sFUEL
+        </button>
+        </>
+      )}
     </div>
   );
 }
