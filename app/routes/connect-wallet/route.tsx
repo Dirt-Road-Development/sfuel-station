@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Outlet, useNavigate } from "@remix-run/react";
+import { useNavigate } from "@remix-run/react";
 import { useAccount } from "wagmi";
 import { ConnectWallet } from "~/components";
 import styles from "./styles.css";
@@ -8,8 +8,8 @@ import { isAddress } from "viem";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "sFUEL Station" },
-    { name: "description", content: "Welcome to SKALE Network's sFUEL Station" },
+    { title: "Connect Wallet - sFUEL Station" },
+    { name: "description", content: "Connect a Wallet to claim sFUEL from the sFUEL Station" },
   ];
 };
 
@@ -19,7 +19,7 @@ export const links = () => [
 
 export default function Index() {
 
-  const { address: connectedAddress, isConnected } = useAccount();
+  const { address: connectedAddress } = useAccount();
   const navigate = useNavigate();
   const [address, setAddress] = useState<string | undefined>();
   const [isValidAddress, setIsValidAddress] = useState<boolean>(false);
@@ -41,7 +41,7 @@ export default function Index() {
           className="next-step-button"
           onClick={(e) => {
             e.preventDefault();
-            navigate("/claim-sfuel?address=" + address);
+            navigate("/claim-sfuel/" + address);
           }}
         >
           Next: Claim sFUEL

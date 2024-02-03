@@ -1,18 +1,32 @@
 .navigation {
     width: 100%;
-    height: 150px;
+    height: 75px;
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
+    
+    @media(max-width: 864px) {
+        justify-content: center;        
+    }
 
     .title {
         width: 50%;
 
+        @media(max-width: 864px) {
+            width: 100%;
+        }
+
         .title-h3 {
             margin-left: 64px;
             font-size: 2rem;
+
+            @media(max-width: 864px) {
+                font-size: 1.25rem;
+                margin-right: 64px;
+                text-align: center;
+            }
         }
     }
 }

@@ -2,7 +2,12 @@
 	height: 500px;
 
 	.connect-wallet__header {
+		font-size: 2rem;
 
+		@media(max-width: 768px) {
+			font-size: 1.5rem;
+			text-align: center;
+		}
 	}
 
 	.connect-options {
@@ -37,6 +42,11 @@
 			    border: 0.75px solid var(--white);
 			    text-indent: 10px;
 			    border-radius: 8px;
+
+			    @media(max-width: 768px) {
+					width: 85%;
+					text-align: center;
+				}
 			}
 		}
 
