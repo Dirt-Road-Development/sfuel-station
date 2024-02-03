@@ -24,6 +24,11 @@ export const links: LinksFunction = () => [
   ] : [
     { rel: "stylesheet", href: globalStyles }
   ]),
+  {
+    rel: "icon",
+    href: "/favicon.png",
+    type: "image/png",
+  },
 ];
 
 export async function loader() {
