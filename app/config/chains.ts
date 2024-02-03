@@ -200,7 +200,7 @@ const chains = {
 	},
 	"chaos": {
 		"name": "Chaos Testnet",
-		"description": "Still not sure? Checkout Chaos Testnet to start. (Hint: You can always switch later!)",
+		"description": "Grab some sFUEL and deploy. No roles required.",
 		"logoUrl": "https://raw.githubusercontent.com/skalenetwork/skale-network/master/metadata/staging/logos/staging-fast-active-bellatrix.png",
 		"color": "#FFF",
 		"background": "#FFF",
