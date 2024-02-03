@@ -11,5 +11,6 @@ export default {
     '@rainbow-me/rainbowkit',
     '@rainbow-me/rainbowkit/wallets',
     /^@?wagmi.*/
+
   ]
 };

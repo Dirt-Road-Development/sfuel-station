@@ -1,5 +1,10 @@
 h2 {
 	font-size: 2rem;
+
+	@media(max-width: 768px) {
+		font-size: 1.5rem;
+		text-align: center;
+	}
 }
 
 .highlights {
@@ -9,6 +14,11 @@ h2 {
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+
+	@media(max-width: 768px) {
+		margin: 0;
+		justify-content: center;
+	}
 
 	.highlight {
 		width: 30%;
