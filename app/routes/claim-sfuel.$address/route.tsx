@@ -30,7 +30,7 @@ export async function loader({ request, params: { address } }: LoaderFunctionArg
 	if (isMainnet) {
 		const mainnetChainNames = ["honorable-steel-rasalhague", "elated-tan-skat", "green-giddy-denebola", "parallel-stormy-spica"];
 		const [ calypso, europa, nebula, titan ] = await Promise.all(mainnetChainNames.map(async(chainName: string) => {
-			const provider = new WebSocketProvider(`wss://mainnet.skalenodes.com/v1/ws/${chainName}`);
+			const provider = new JsonRpcProvider(`https://mainnet.skalenodes.com/v1/${chainName}`);
 			const balance = await provider.getBalance(address);
 			return formatEther(balance);
 		}));
@@ -42,7 +42,7 @@ export async function loader({ request, params: { address } }: LoaderFunctionArg
 	} else{
 		const mainnetChainNames = ["utter-unripe-menkar", "fast-active-bellatrix", "legal-crazy-castor", "faint-slimy-achird", "aware-chief-gianfar"];
 		const [ calypso, chaos, europa, nebula, titan ] = await Promise.all(mainnetChainNames.map(async(chainName: string) => {
-			const provider = new WebSocketProvider(`wss://staging-v3.skalenodes.com/v1/ws/staging-${chainName}`);
+			const provider = new JsonRpcProvider(`https://staging-v3.skalenodes.com/v1/staging-${chainName}`);
 			const balance = await provider.getBalance(address);
 			return formatEther(balance);
 		}));
