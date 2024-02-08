@@ -40,15 +40,15 @@ export async function loader({ request, params: { address } }: LoaderFunctionArg
 		balances["nebula"] = nebula;
 		balances["titan"] = titan;
 	} else{
-		const mainnetChainNames = ["utter-unripe-menkar", "fast-active-bellatrix", "legal-crazy-castor", "faint-slimy-achird", "aware-chief-gianfar"];
-		const [ calypso, chaos, europa, nebula, titan ] = await Promise.all(mainnetChainNames.map(async(chainName: string) => {
-			const provider = new JsonRpcProvider(`https://staging-v3.skalenodes.com/v1/staging-${chainName}`);
+		const testnetChainNames = ["giant-half-dual-testnet","juicy-low-small-testnet","lanky-ill-funny-testnet","aware-fake-trim-testnet"];
+
+		const [ calypso, europa, nebula, titan ] = await Promise.all(testnetChainNames.map(async(chainName: string) => {
+			const provider = new JsonRpcProvider(`https://testnet.skalenodes.com/v1/${chainName}`);
 			const balance = await provider.getBalance(address);
 			return formatEther(balance);
 		}));
 
 		balances["calypso"] = calypso;
-		balances["chaos"] = chaos;
 		balances["europa"] = europa;
 		balances["nebula"] = nebula;
 		balances["titan"] = titan;
@@ -78,11 +78,7 @@ export default function ClaimSkaleFuel() {
 
 	useEffect(() => {
 		setIsMainnet(network === "mainnet");
-		if (network === "mainnet") {
-			setDisplayChains(Object.entries(chains).filter((chain) => chain[1].name !== "Chaos Testnet"));
-		} else {
-			setDisplayChains(Object.entries(chains));
-		}
+		setDisplayChains(Object.entries(chains));
 	}, [network]);
 
 	return (
@@ -153,7 +149,7 @@ export default function ClaimSkaleFuel() {
 											const { duration, gasPrice } = await miner.mineGasForTransaction(nonce, 100_000, randomWallet.address);
 											console.log("Gas Price: ", gasPrice);
 
-											const functionSignature = key === "europa" ? "0x6a627842" : "0x0c11dedd";
+											const functionSignature = key === "europa" && isMainnet ? "0x6a627842" : "0x0c11dedd";
 
 											const response = await randomWallet.sendTransaction({
 												to: chain?.chainInfo?.[isMainnet ? "mainnet" : "testnet"].proofOfWork,
