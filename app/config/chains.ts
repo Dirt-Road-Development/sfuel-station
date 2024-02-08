@@ -43,24 +43,11 @@ const chains = {
     			"threshold": 0.005
     		},
     		"testnet": {
-    			"rpcUrl": "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar",
-    			"chainId": 344106930,
-    			"proofOfWork": "0x84b7265Bc964BB69b4275d4Dac4df0FD87556960",
-    			"threshold": 0.0075,
-    			"contracts": [
-    				{
-    					address: "0x7E1B8750C21AebC3bb2a0bDf40be104C609a9852",
-    					contractName: "SKL",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0x49c37d0Bb6238933eEe2157e9Df417fd62723fF6",
-    					contractName: "USDC",
-    					contractType: "erc20",
-    					decimals: 6
-    				}
-    			]
+    			"rpcUrl": "https://testnet.skalenodes.com/v1/giant-half-dual-testnet",
+    			"chainId": 974399131,
+    			"proofOfWork": "0x62Fe932FF26e0087Ae383f6080bd2Ed481bA5A8A",
+    			"threshold": 0.5,
+    			"contracts": []
     		}
     	}
 	},
@@ -80,60 +67,11 @@ const chains = {
     			"contracts": []
     		},
     		"testnet": {
-    			"rpcUrl": "https://staging-v3.skalenodes.com/v1/staging-legal-crazy-castor",
-    			"chainId": 476158412,
-    			"proofOfWork": "0x436389289aEAFefD1d7471b7FbEc67539Bde3E34",
-    			"threshold": 0.005,
-    			"contracts": [
-	    			{
-	    				address: "0xD2Aaa00700000000000000000000000000000000",
-	    				contractName: "ETH",
-	    				contractType: "erc20",
-	    				decimals: 18
-	    			},
-					{
-    					address: "0xbA1E9BA7CDd4815Da6a51586bE56e8643d1bEAb6",
-    					contractName: "SKL",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0xf06De9214B1Db39fFE9db2AebFA74E52f1e46e39",
-    					contractName: "Ruby",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0x3595E2f313780cb2f23e197B8e297066fd410d30",
-    					contractName: "DAI",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0xe0E2cb3A5d6f94a5bc2D00FAa3e64460A9D241E1",
-    					contractName: "USDP",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0xa388F9783d8E5B0502548061c3b06bf4300Fc0E1",
-    					contractName: "USDT",
-    					contractType: "erc20",
-    					decimals: 6
-    				},
-    				{
-    					address: "0x5d42495D417fcd9ECf42F3EA8a55FcEf44eD9B33",
-    					contractName: "USDC",
-    					contractType: "erc20",
-    					decimals: 6
-    				},
-    				{
-    					address: "0xf5E880E1066DDc90471B9BAE6f183D5344fd289F",
-    					contractName: "WBTC",
-    					contractType: "erc20",
-    					decimals: 8
-    				}
-    			]
+    			"rpcUrl": "https://testnet.skalenodes.com/v1/juicy-low-small-testnet",
+    			"chainId": 1444673419,
+    			"proofOfWork": "0x366727B410fE55774C8b0B5b5A6E2d74199a088A",
+    			"threshold": 0.5,
+    			"contracts": []
     		},
     	}
 	},
@@ -153,24 +91,11 @@ const chains = {
     			"threshold": 0.0001
     		},
     		"testnet": {
-    			"rpcUrl": "https://staging-v3.skalenodes.com/v1/staging-faint-slimy-achird",
-    			"chainId": 503129905,
-    			"proofOfWork": "0xfd56A3456fbAB0fc013213edCc830B9d32403C8B",
-    			"threshold": 0.0001,
-    			"contracts": [
-    				{
-    					address: "0x7F73B66d4e6e67bCdeaF277b9962addcDabBFC4d",
-    					contractName: "SKL",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0x717d43399ab3a8aada669CDC9560a6BAfdeA9796",
-    					contractName: "USDC",
-    					contractType: "erc20",
-    					decimals: 6
-    				}
-    			]
+    			"rpcUrl": "https://testnet.skalenodes.com/v1/lanky-ill-funny-testnet",
+    			"chainId": 37084624,
+    			"proofOfWork": "0x000E9c53C4e2e21F5063f2e232d0AA907318dccb",
+    			"threshold": 0.5,
+    			"contracts": []
     		},
     	}
 	},
@@ -190,44 +115,14 @@ const chains = {
     			"threshold": 0.005
     		},
     		"testnet": {
-    			"rpcUrl": "https://staging-v3.skalenodes.com/v1/staging-aware-chief-gianfar",
-    			"chainId": 1517929550,
+    			"rpcUrl": "https://testnet.skalenodes.com/v1/aware-fake-trim-testnet",
+    			"chainId": 1020352220,
     			"contracts": [],
-    			"proofOfWork": "0xdb6c305e94097033904a76587e4BBCa41B14B2B2",
-    			"threshold": 0.005
+    			"proofOfWork": "0x08f98Af60eb83C18184231591A8F89577E46A4B9",
+    			"threshold": 0.5
     		},
     	}
-	},
-	"chaos": {
-		"name": "Chaos Testnet",
-		"description": "Grab some sFUEL and deploy. No roles required.",
-		"logoUrl": "https://raw.githubusercontent.com/skalenetwork/skale-network/master/metadata/staging/logos/staging-fast-active-bellatrix.png",
-		"color": "#FFF",
-		"background": "#FFF",
-		"gradientBackground": "linear-gradient(227deg, rgb(65, 159, 91), rgb(26, 81, 40))",
-		"chainInfo": {
-    		"testnet": {
-    			"rpcUrl": "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix",
-    			"chainId": 1351057110,
-    			"proofOfWork": "0x1B2e7E6E66a6c202cdC0C31DF996b530af22CBee",
-    			"threshold": 0.0001,
-    			"contracts": [
-    				{
-    					address: "0x08f98Af60eb83C18184231591A8F89577E46A4B9",
-    					contractName: "DAI",
-    					contractType: "erc20",
-    					decimals: 18
-    				},
-    				{
-    					address: "0x082081c8E607ca6C1c53aC093cAb3847ED59C0b0",
-    					contractName: "USDT",
-    					contractType: "erc20",
-    					decimals: 6
-    				}
-    			]
-    		},
-		}
-	},
+	}
 } satisfies {[key: string]: Chain};
 
 const chainList = Object.entries(chains);
