@@ -19,13 +19,17 @@ export const links = () => [
 
 export default function Index() {
 
-  const { address: connectedAddress } = useAccount();
+  const { address: connectedAddress, isDisconnected } = useAccount();
   const navigate = useNavigate();
   const [address, setAddress] = useState<string | undefined>();
   const [isValidAddress, setIsValidAddress] = useState<boolean>(false);
 
   useEffect(() => {
-    if (connectedAddress !== undefined && isAddress(connectedAddress)) setAddress(connectedAddress);
+    if (connectedAddress !== undefined && isAddress(connectedAddress) && !isDisconnected) {
+      setAddress(connectedAddress)
+    } else {
+      setAddress(undefined);
+    }
   }, [connectedAddress]);
 
   useEffect(() => {
@@ -34,7 +38,10 @@ export default function Index() {
 
   return (
     <div className="center container">
-      <ConnectWallet setAddress={setAddress} />
+      <ConnectWallet
+        address={address}
+        setAddress={setAddress}
+      />
       {isValidAddress && (
         <>
         <button

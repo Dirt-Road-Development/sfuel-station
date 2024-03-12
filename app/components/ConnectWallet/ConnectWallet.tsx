@@ -4,8 +4,10 @@ import { Dispatch, SetStateAction } from "react";
 import { isAddress } from "viem";
 
 export default function ConnectWallet({
+  address,
   setAddress
 }: {
+  address: string | undefined;
   setAddress: Dispatch<SetStateAction<string | undefined>>
 }) {
   return (
@@ -27,6 +29,7 @@ export default function ConnectWallet({
             type="text"
             name="address"
             placeholder="Input your Ethereum Address"
+            defaultValue={address}
             onChange={(e) => {
               e.preventDefault();
               if (isAddress(e.target.value)) {

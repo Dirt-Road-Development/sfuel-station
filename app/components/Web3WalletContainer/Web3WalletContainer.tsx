@@ -1,14 +1,14 @@
 import {
   RainbowKitProvider,
+  getDefaultConfig,
   getDefaultWallets,
 } from '@rainbow-me/rainbowkit';
-import type { Chain } from 'wagmi';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import {
   skaleCalypso,
   skaleCalypsoTestnet,
-  skaleChaosTestnet,
   skaleEuropa,
   skaleEuropaTestnet,
   skaleNebula,
@@ -16,11 +16,14 @@ import {
   skaleTitan,
   skaleTitanTestnet,
   skaleRazor,
-  skaleCryptoBlades
+  skaleCryptoBlades,
+  Chain
 } from "wagmi/chains";
 
 import { useState } from 'react';
 import "@rainbow-me/rainbowkit/styles.css";
+
+const queryClient = new QueryClient();
 
 export default function Web3WalletContainer({
   children,
@@ -32,49 +35,48 @@ export default function Web3WalletContainer({
  
   const [{ config, chains }] = useState(() => {
 
-    const { chains, publicClient } = configureChains(
-      [
-        skaleCalypso,
-        skaleCalypsoTestnet,
-        skaleChaosTestnet,
-        skaleEuropa,
-        skaleEuropaTestnet,
-        skaleNebula,
-        skaleNebulaTestnet,
-        skaleTitan,
-        skaleTitanTestnet,
-        skaleRazor,
-        skaleCryptoBlades
-      ],
-      [publicProvider()]
-    );
+    const chains: readonly [Chain, ...Chain[]] = [
+      skaleCalypso,
+      skaleCalypsoTestnet,
+      skaleEuropa,
+      skaleEuropaTestnet,
+      skaleNebula,
+      skaleNebulaTestnet,
+      skaleTitan,
+      skaleTitanTestnet,
+      skaleRazor,
+      skaleCryptoBlades
+    ]
 
-    const { connectors } = getDefaultWallets({
+    const config = getDefaultConfig({
       appName: 'sFUEL Station',
       projectId,
       chains,
-    });
-
-    const config = createConfig({
-      autoConnect: false,
-      connectors,
-      publicClient,
+      ssr: true,
     });
 
     return {
       config,
       chains
-    };
+    }
   });
     
   if (!config || !chains) return null;
 
   return (
     <>
-      <WagmiConfig config={config}>
-        <RainbowKitProvider chains={chains as Chain[]}>
-          {children}
-        </RainbowKitProvider>
+      <WagmiConfig
+        config={config}
+      >
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider
+            appInfo={{
+              appName: "sFUEL Station",
+            }}
+          >
+            {children}
+          </RainbowKitProvider>
+        </QueryClientProvider>
       </WagmiConfig>
     </>
   );
